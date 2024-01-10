@@ -6,7 +6,12 @@ import ReactDOM from "react-dom";
 import "../styles/index.css";
 
 //import your own components
-import Home from "./component/home.jsx";
+import {Counter} from "./component/Counter.jsx";
 
-//render your react application
-ReactDOM.render(<Home />, document.querySelector("#app"));
+// Hay que cambiar esto por que si no se dibuja cada milesima de segundo
+// Asi es imposible usar funciones para los botones. (Estados?)
+let seconds = 0;
+setInterval(function(){
+    ReactDOM.render(<Counter seconds={seconds}/>, document.querySelector("#app"));
+    seconds++
+},10)
